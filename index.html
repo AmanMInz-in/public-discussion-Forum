@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Discussion Forum</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-title">
+      <h1>Discussion Forum <small class="public-badge">Public</small></h1>
+      <input id="search" placeholder="Search threads..." />
+    </div>
+    <div class="auth">
+      <span id="user-display" class="muted">Not signed in</span>
+      <input id="email-input" placeholder="Enter email to sign in" />
+      <button id="sign-in">Sign In</button>
+      <button id="sign-out" class="hidden">Sign Out</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="new-thread">
+      <h2>Create a Thread</h2>
+      <input id="thread-title" placeholder="Thread title" />
+      <textarea id="thread-body" placeholder="Write your question or topic..."></textarea>
+      <button id="create-thread">Post Thread</button>
+    </section>
+
+    <section class="threads">
+      <h2>Threads</h2>
+      <ul id="thread-list"></ul>
+    </section>
+  </main>
+
+  <div id="thread-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <button id="close-modal" class="close">✕</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-body"></p>
+      <div class="replies">
+        <h4>Replies</h4>
+        <ul id="reply-list"></ul>
+        <textarea id="reply-text" placeholder="Write a reply..."></textarea>
+        <button id="post-reply">Post Reply</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="credits">
+        <strong>Built by Aman Minz</strong>
+        <div class="small muted">Open-source discussion forum demo</div>
+      </div>
+      <div class="social">
+        <a href="https://github.com/AmanMInz-in" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/aman-minz-b6705036b/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/acoustic.aman_" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</html>
+</html>
