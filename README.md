@@ -2,6 +2,8 @@
 
 This repository is open source and released under the MIT license. All threads are public by design.
 
+visit for live preview : https://amanminz-in.github.io/public-discussion-Forum/
+
 This repo contains two modes:
 - Static/demo mode: records threads in the browser's `localStorage` (private to that browser instance).
 - Server mode: a simple Node/Express backend (included) persists threads to a file and makes them publicly available when you deploy the server.
