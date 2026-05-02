@@ -96,6 +96,9 @@
         document.getElementById('email-input').classList.add('hidden')
         document.getElementById('sign-in').classList.add('hidden')
         document.getElementById('sign-out').classList.remove('hidden')
+        emailInputVisible = false
+      } else {
+        emailInputVisible = false
       }
     }catch(e){}
   }
@@ -235,9 +238,19 @@
   const signOutBtn = document.getElementById('sign-out')
   const emailInput = document.getElementById('email-input')
   const userDisplay = document.getElementById('user-display')
+  let emailInputVisible = false
 
   if(signInBtn) {
     signInBtn.addEventListener('click', () => {
+      // First click: Show email input
+      if(!emailInputVisible) {
+        emailInput.classList.remove('hidden')
+        emailInputVisible = true
+        emailInput.focus()
+        return
+      }
+      
+      // Second click: Process login
       const v = emailInput.value.trim()
       if(!v || !v.includes('@')) return alert('Enter a valid email')
       const name = v.split('@')[0]
@@ -247,6 +260,7 @@
       emailInput.classList.add('hidden')
       signInBtn.classList.add('hidden')
       signOutBtn.classList.remove('hidden')
+      emailInputVisible = false
     })
   }
 
@@ -255,7 +269,7 @@
       currentUser = null
       localStorage.removeItem('synclab_user')
       userDisplay.textContent = 'Not signed in'
-      emailInput.classList.remove('hidden')
+      emailInput.classList.add('hidden')
       signInBtn.classList.remove('hidden')
       signOutBtn.classList.add('hidden')
       emailInput.value = ''

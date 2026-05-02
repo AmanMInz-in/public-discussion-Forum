@@ -33,6 +33,42 @@
       },
     }
   </script>
+
+  <!-- Video Background Optimization -->
+  <style>
+    /* Responsive video background for desktop and mobile */
+    video {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    /* Ensure video plays on Android */
+    @media (max-width: 768px) {
+      video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+    }
+
+    /* Desktop optimization */
+    @media (min-width: 769px) {
+      video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+    }
+
+    /* Prevent scrolling delays on mobile */
+    section {
+      -webkit-backface-visibility: hidden;
+      -webkit-perspective: 1000;
+    }
+  </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900">
@@ -51,15 +87,15 @@
       <!-- Navigation Links -->
       <div class="hidden md:flex items-center gap-8">
         <a href="#journey" class="text-slate-600 hover:text-indigo-600 transition-colors duration-200 text-sm font-medium">How It Works</a>
-        <a href="#forum" class="text-slate-600 hover:text-indigo-600 transition-colors duration-200 text-sm font-medium">Community</a>
+        <a href="about.html" target="_blank" class="text-slate-600 hover:text-indigo-600 transition-colors duration-200 text-sm font-medium">About SyncLab</a>
       </div>
 
       <!-- Auth Section -->
-      <div class="flex items-center gap-3">
-        <span id="user-display" class="hidden sm:inline text-sm text-slate-500">Not signed in</span>
-        <input id="email-input" type="email" placeholder="Email" class="hidden sm:inline px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent" />
-        <button id="sign-in" class="hidden sm:inline px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-200">Sign In</button>
-        <button id="sign-out" class="hidden px-4 py-2 bg-slate-200 text-slate-900 text-sm font-medium rounded-lg hover:bg-slate-300 transition-colors duration-200">Sign Out</button>
+      <div class="flex items-center gap-2 sm:gap-3 flex-wrap justify-end">
+        <span id="user-display" class="inline text-xs sm:text-sm text-slate-500">Not signed in</span>
+        <input id="email-input" type="email" placeholder="Email" class="hidden px-2 sm:px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent w-24 sm:w-auto" />
+        <button id="sign-in" class="inline px-3 sm:px-4 py-2 bg-indigo-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-200 whitespace-nowrap">Sign In</button>
+        <button id="sign-out" class="hidden px-3 sm:px-4 py-2 bg-slate-200 text-slate-900 text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-300 transition-colors duration-200 whitespace-nowrap">Sign Out</button>
       </div>
     </nav>
   </header>
@@ -69,13 +105,20 @@
          HERO SECTION - High-Impact Centered Layout
          ============================================ -->
     <section class="relative min-h-[85vh] flex items-center justify-center px-4 py-20 overflow-hidden">
-      <!-- Video Background for larger screens -->
-      <div class="hidden sm:block absolute inset-0 z-[-1] overflow-hidden bg-white">
-        <iframe class="w-full h-full scale-150 pointer-events-none" src="https://www.youtube.com/embed/Hgg7M3kSqyE?autoplay=1&mute=1&loop=1&controls=0&rel=0&modestbranding=1&playlist=Hgg7M3kSqyE" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+      <!-- Video Background: responsive cover for all screens -->
+      <div class="absolute inset-0 z-[-1] overflow-hidden bg-white">
+        <video 
+          class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          <source src="assets/background.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
-
-      <!-- Static gradient for mobile -->
-      <div class="sm:hidden absolute inset-0 bg-white -z-10"></div>
 
       <!-- Overlay -->
       <div class="absolute inset-0 bg-slate-900/10 z-[1]"></div>
@@ -192,30 +235,19 @@
   </section>
 
   <!-- ============================================
-       FOOTER - Modern 3-Column Layout
+       FOOTER - Modern 2-Column Layout
        ============================================ -->
   <footer class="bg-slate-900 text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <!-- 3-Column Footer Content -->
-      <div class="grid md:grid-cols-3 gap-12 mb-12 pb-12 border-b border-slate-700">
-        <!-- Product Column -->
-        <div>
-          <h5 class="text-lg font-bold mb-6">Product</h5>
-          <ul class="space-y-3">
-            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Features</a></li>
-            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Pricing</a></li>
-            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Security</a></li>
-            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Roadmap</a></li>
-          </ul>
-        </div>
-
+      <!-- 2-Column Footer Content -->
+      <div class="grid grid-cols-2 md:grid-cols-2 gap-8 sm:gap-12 mb-12 pb-12 border-b border-slate-700">
         <!-- Community Column -->
         <div>
           <h5 class="text-lg font-bold mb-6">Community</h5>
           <ul class="space-y-3">
             <li><a href="https://github.com/AmanMInz-in" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/aman-minz-b6705036b/" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">LinkedIn</a></li>
-            <li><a href="https://www.instagram.com/acoustic.aman_" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/amanminz/" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/amannminz" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">Instagram</a></li>
             <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Contribute</a></li>
           </ul>
         </div>

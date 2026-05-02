@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About SyncLab - Engineered for Collaboration</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              50: '#f8fafc',
+              900: '#0f172a',
+              500: '#64748b',
+            },
+            indigo: {
+              600: '#4f46e5',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+            serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+          },
+          letterSpacing: {
+            tight: '-0.02em',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom Styles for Typography -->
+  <style>
+    .serif-heading {
+      font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
+      font-weight: 700;
+    }
+    .sans-body {
+      font-family: 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 sans-body">
+  <!-- ============================================
+       HEADER - Consistent with Main Site
+       ============================================ -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-slate-200/50 shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/synclab-logo.png" alt="SyncLab logo" class="h-12 w-auto max-w-[160px] rounded-xl object-contain shadow-sm" />
+          <span class="sr-only">SyncLab</span>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#journey" class="text-slate-600 hover:text-indigo-600 transition-colors duration-200 text-sm font-medium">How It Works</a>
+        <a href="about.html" class="text-slate-600 hover:text-indigo-600 transition-colors duration-200 text-sm font-medium">About SyncLab</a>
+      </div>
+
+      <!-- Auth Section -->
+      <div class="flex items-center gap-2 sm:gap-3 flex-wrap justify-end">
+        <span id="user-display" class="inline text-xs sm:text-sm text-slate-500">Not signed in</span>
+        <input id="email-input" type="email" placeholder="Email" class="hidden px-2 sm:px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent w-24 sm:w-auto" />
+        <button id="sign-in" class="inline px-3 sm:px-4 py-2 bg-indigo-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-200 whitespace-nowrap">Sign In</button>
+        <button id="sign-out" class="hidden px-3 sm:px-4 py-2 bg-slate-200 text-slate-900 text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-300 transition-colors duration-200 whitespace-nowrap">Sign Out</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================
+         SECTION 1: The Purpose of SyncLab
+         ============================================ -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+        <h1 class="text-4xl serif-heading text-slate-900 leading-tight">
+          Engineered for Collaboration
+        </h1>
+
+        <!-- SyncLab Logo -->
+        <div class="pt-8">
+          <img src="assets/synclab-logo.png" alt="SyncLab logo" class="h-24 w-auto mx-auto rounded-xl object-contain shadow-sm" />
+        </div>
+
+        <div class="text-lg text-slate-700 leading-relaxed space-y-6 max-w-3xl mx-auto">
+          <p>
+            SyncLab is a specialized hub for peer-to-peer knowledge sharing, designed specifically for engineering students to bridge the gap between theory and practical application.
+          </p>
+
+          <p>
+            Our platform focuses on <span class="text-indigo-600 font-semibold">'Syncing'</span> ideas, solving complex technical problems, and building a community-driven repository of insights. Whether you're debugging code, exploring new technologies, or seeking guidance on real-world projects, SyncLab connects you with fellow engineers who understand the challenges of modern technical education.
+          </p>
+
+          <p>
+            Here, collaboration isn't just encouraged—it's engineered into every interaction. Join a community where knowledge flows freely, problems are solved collectively, and every member contributes to a growing ecosystem of technical excellence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: Meet the Developer
+         ============================================ -->
+    <section class="py-20 px-4 bg-white border-t border-slate-200/50">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Developer Image -->
+          <div class="order-2 md:order-1">
+            <div class="w-full h-80 bg-gradient-to-br from-indigo-100 to-indigo-50 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center">
+              <img src="assets/aman.jpg" alt="Aman Minz - Developer & AI/ML Student" class="max-w-full max-h-full object-contain rounded-xl" />
+            </div>
+          </div>
+
+          <!-- Developer Bio -->
+          <div class="order-1 md:order-2 space-y-6">
+            <h2 class="text-3xl serif-heading text-slate-900">
+              Behind the Code
+            </h2>
+
+            <div class="text-slate-700 leading-relaxed space-y-4">
+              <p>
+                I'm Aman Minz, a B.Tech Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning at CCET Bhilai.
+              </p>
+
+              <p>
+                I'm currently focused on learning the fundamentals of AI and machine learning, along with working on data handling and analysis using SQL. My approach is practical—understanding concepts by implementing them and building projects rather than just consuming theory.
+              </p>
+
+              <p>
+                Right now, I'm in the learning and building phase, developing my skills in AI/ML, data management, and software development. I'm open to opportunities that help me gain experience and improve through real work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: Professional Connect
+         ============================================ -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-2xl serif-heading text-slate-900 mb-8">
+          Let's Connect
+        </h3>
+
+        <div class="flex justify-center gap-8">
+          <a href="https://www.linkedin.com/in/aman-minz-b6705036b/" target="_blank" rel="noopener" class="text-slate-400 hover:text-indigo-600 transition-colors duration-200">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+
+          <a href="https://www.instagram.com/acoustic.aman_/" target="_blank" rel="noopener" class="text-slate-400 hover:text-indigo-600 transition-colors duration-200">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.017 0C8.396 0 7.609.034 6.298.094 4.993.154 4.088.406 3.35.646c-.826.262-1.528.61-2.237 1.318C.406 2.672 0 3.375 0 4.2c0 .826.406 1.529 1.113 2.237.71.708 1.411 1.056 2.237 1.318.738.24 1.643.492 2.948.552C7.609 8.366 8.396 8.4 12.017 8.4s4.408-.034 5.719-.094c1.305-.06 2.21-.312 2.948-.552.826-.262 1.528-.61 2.237-1.318C23.594 5.728 24 5.025 24 4.2c0-.826-.406-1.529-1.113-2.237-.71-.708-1.411-1.056-2.237-1.318-.738-.24-1.643-.492-2.948-.552C16.408.034 15.621 0 12.017 0zm0 2.4c3.506 0 3.927.013 5.312.073 1.305.06 1.988.28 2.437.467.598.248 1.024.575 1.472 1.023.448.448.775.874 1.023 1.472.187.449.407 1.132.467 2.437.06 1.385.073 1.806.073 5.312s-.013 3.927-.073 5.312c-.06 1.305-.28 1.988-.467 2.437-.248.598-.575 1.024-1.023 1.472-.448.448-.874.775-1.472 1.023-.449.187-1.132.407-2.437.467-1.385.06-1.806.073-5.312.073s-3.927-.013-5.312-.073c-1.305-.06-1.988-.28-2.437-.467-.598-.248-1.024-.575-1.472-1.023-.448-.448-.775-.874-1.023-1.472-.187-.449-.407-1.132-.467-2.437C2.49 15.927 2.477 15.506 2.477 12.017s.013-3.927.073-5.312c.06-1.305.28-1.988.467-2.437.248-.598.575-1.024 1.023-1.472.448-.448.874-.775 1.472-1.023.449-.187 1.132-.407 2.437-.467 1.385-.06 1.806-.073 5.312-.073zm0 3.6a6.4 6.4 0 1 0 0 12.8 6.4 6.4 0 0 0 0-12.8zm0 10.56a4.16 4.16 0 1 1 0-8.32 4.16 4.16 0 0 1 0 8.32zm6.4-10.88a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/>
+            </svg>
+          </a>
+
+          <a href="https://github.com/AmanMInz-in" target="_blank" rel="noopener" class="text-slate-400 hover:text-indigo-600 transition-colors duration-200">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CALL TO ACTION
+         ============================================ -->
+    <section class="py-20 px-4 bg-white border-t border-slate-200/50">
+      <div class="max-w-4xl mx-auto text-center">
+        <a href="index.html" class="inline-block px-8 py-4 bg-indigo-600 text-white font-bold text-lg rounded-lg hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+          Back to Discussions
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       FOOTER - Consistent with Main Site
+       ============================================ -->
+  <footer class="bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <!-- 2-Column Footer Content -->
+      <div class="grid grid-cols-2 md:grid-cols-2 gap-8 sm:gap-12 mb-12 pb-12 border-b border-slate-700">
+        <!-- Community Column -->
+        <div>
+          <h5 class="text-lg font-bold mb-6">Community</h5>
+          <ul class="space-y-3">
+            <li><a href="https://github.com/AmanMInz-in" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/amanminz/" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/amannminz/" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">Instagram</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Contribute</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Column -->
+        <div>
+          <h5 class="text-lg font-bold mb-6">Legal</h5>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Code of Conduct</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar with Credits -->
+      <div class="flex flex-col sm:flex-row items-center justify-between pt-8">
+        <p class="text-slate-500 text-sm">© 2026 SyncLab. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Include the script for auth functionality -->
+  <script src="script.js"></script>
+</body>
+</html>
