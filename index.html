@@ -1,67 +1,275 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Discussion Forum</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SyncLab - Where Insight Meets Collaboration</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              50: '#f8fafc',
+              900: '#0f172a',
+              500: '#64748b',
+            },
+            indigo: {
+              600: '#4f46e5',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+          },
+          letterSpacing: {
+            tight: '-0.02em',
+          },
+        },
+      },
+    }
+  </script>
 </head>
-<body>
-  <header class="site-header">
-    <div class="site-title">
-      <h1>Discussion Forum <small class="public-badge">Public</small></h1>
-      <input id="search" placeholder="Search threads..." />
-    </div>
-    <div class="auth">
-      <span id="user-display" class="muted">Not signed in</span>
-      <input id="email-input" placeholder="Enter email to sign in" />
-      <button id="sign-in">Sign In</button>
-      <button id="sign-out" class="hidden">Sign Out</button>
-    </div>
+
+<body class="bg-slate-50 text-slate-900">
+  <!-- ============================================
+       HEADER - Sticky with Glassmorphism
+       ============================================ -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-slate-200/50 shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/synclab-logo.png" alt="SyncLab logo" class="h-12 w-auto max-w-[160px] rounded-xl object-contain shadow-sm" />
+          <span class="sr-only">SyncLab</span>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#journey" class="text-slate-600 hover:text-indigo-600 transition-colors duration-200 text-sm font-medium">How It Works</a>
+        <a href="#forum" class="text-slate-600 hover:text-indigo-600 transition-colors duration-200 text-sm font-medium">Community</a>
+      </div>
+
+      <!-- Auth Section -->
+      <div class="flex items-center gap-3">
+        <span id="user-display" class="hidden sm:inline text-sm text-slate-500">Not signed in</span>
+        <input id="email-input" type="email" placeholder="Email" class="hidden sm:inline px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent" />
+        <button id="sign-in" class="hidden sm:inline px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-200">Sign In</button>
+        <button id="sign-out" class="hidden px-4 py-2 bg-slate-200 text-slate-900 text-sm font-medium rounded-lg hover:bg-slate-300 transition-colors duration-200">Sign Out</button>
+      </div>
+    </nav>
   </header>
 
-  <main class="container">
-    <section class="new-thread">
-      <h2>Create a Thread</h2>
-      <input id="thread-title" placeholder="Thread title" />
-      <textarea id="thread-body" placeholder="Write your question or topic..."></textarea>
-      <button id="create-thread">Post Thread</button>
+  <main>
+    <!-- ============================================
+         HERO SECTION - High-Impact Centered Layout
+         ============================================ -->
+    <section class="relative min-h-[85vh] flex items-center justify-center px-4 py-20 overflow-hidden">
+      <!-- Video Background for larger screens -->
+      <div class="hidden sm:block absolute inset-0 z-[-1] overflow-hidden bg-white">
+        <iframe class="w-full h-full scale-150 pointer-events-none" src="https://www.youtube.com/embed/Hgg7M3kSqyE?autoplay=1&mute=1&loop=1&controls=0&rel=0&modestbranding=1&playlist=Hgg7M3kSqyE" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+      </div>
+
+      <!-- Static gradient for mobile -->
+      <div class="sm:hidden absolute inset-0 bg-white -z-10"></div>
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-slate-900/10 z-[1]"></div>
+
+      <!-- Subtle background elements for larger screens -->
+      <div class="hidden sm:block absolute top-20 right-10 w-72 h-72 bg-indigo-100/30 rounded-full blur-3xl -z-10"></div>
+      <div class="hidden sm:block absolute bottom-10 left-10 w-96 h-96 bg-indigo-50/20 rounded-full blur-3xl -z-10"></div>
+
+      <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8 drop-shadow-[0_24px_32px_rgba(0,0,0,0.35)]">
+        <!-- Main Headline -->
+        <h2 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight drop-shadow-[0_24px_32px_rgba(0,0,0,0.45)]">
+          Where Insight Meets <span class="text-indigo-300">Collaboration</span>
+        </h2>
+
+        <!-- Sub-heading -->
+        <p class="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_16px_24px_rgba(0,0,0,0.3)]">
+          Join a thriving community of peer-to-peer knowledge sharing. Ask questions, share expertise, and grow together through meaningful discussions.
+        </p>
+
+        <!-- CTA Button with Hover Scale -->
+        <div class="pt-8">
+          <a href="forum.html" class="inline-block px-8 py-4 bg-indigo-500 text-white font-bold text-lg rounded-lg hover:bg-indigo-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+            Enter Forum
+          </a>
+        </div>
+
+        <!-- Trust indicators -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-8 pt-12 text-sm text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl text-green-400">✓</span>
+            <span>100% Public</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl text-green-400">✓</span>
+            <span>Open Community</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl text-green-400">✓</span>
+            <span>Real-time Responses</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="threads">
-      <h2>Threads</h2>
-      <ul id="thread-list"></ul>
+    <!-- ============================================
+         USER JOURNEY SECTION - 3-Step Grid
+         ============================================ -->
+    <section id="journey" class="py-20 px-4 bg-white border-t border-slate-200/50">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Title -->
+        <div class="text-center mb-16">
+          <h3 class="text-4xl font-bold text-slate-900 mb-4">How It Works</h3>
+          <p class="text-lg text-slate-600">Three simple steps to join the conversation</p>
+        </div>
+
+        <!-- 3-Step Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Step 1: Browse -->
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 to-indigo-50 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 -z-10"></div>
+            <div class="p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <!-- Numeric Badge -->
+              <div class="w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold mb-6">
+                01
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 mb-3">Browse</h4>
+              <p class="text-slate-600 leading-relaxed">
+                Explore a diverse range of topics and discussions. Find threads that interest you and catch up on the latest conversations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2: Authenticate -->
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 to-indigo-50 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 -z-10"></div>
+            <div class="p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <!-- Numeric Badge -->
+              <div class="w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold mb-6">
+                02
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 mb-3">Authenticate</h4>
+              <p class="text-slate-600 leading-relaxed">
+                Sign in with your email to unlock the full experience. Your identity helps build trust and accountability in our community.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3: Contribute -->
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 to-indigo-50 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 -z-10"></div>
+            <div class="p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <!-- Numeric Badge -->
+              <div class="w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold mb-6">
+                03
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 mb-3">Contribute</h4>
+              <p class="text-slate-600 leading-relaxed">
+                Create threads, ask questions, and share your insights. Your voice matters and helps shape the direction of our community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <div id="thread-modal" class="modal hidden" aria-hidden="true">
-    <div class="modal-content">
-      <button id="close-modal" class="close">✕</button>
-      <h3 id="modal-title"></h3>
-      <p id="modal-body"></p>
-      <div class="replies">
-        <h4>Replies</h4>
-        <ul id="reply-list"></ul>
-        <textarea id="reply-text" placeholder="Write a reply..."></textarea>
-        <button id="post-reply">Post Reply</button>
+  <!-- ============================================
+       LOGO SECTION ABOVE FOOTER
+       ============================================ -->
+  <section class="py-8 bg-slate-50 border-t border-slate-200/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <img src="assets/synclab-logo.png" alt="SyncLab logo" class="h-20 w-auto mx-auto rounded-xl object-contain shadow-sm" />
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER - Modern 3-Column Layout
+       ============================================ -->
+  <footer class="bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <!-- 3-Column Footer Content -->
+      <div class="grid md:grid-cols-3 gap-12 mb-12 pb-12 border-b border-slate-700">
+        <!-- Product Column -->
+        <div>
+          <h5 class="text-lg font-bold mb-6">Product</h5>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Features</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Pricing</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Security</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Roadmap</a></li>
+          </ul>
+        </div>
+
+        <!-- Community Column -->
+        <div>
+          <h5 class="text-lg font-bold mb-6">Community</h5>
+          <ul class="space-y-3">
+            <li><a href="https://github.com/AmanMInz-in" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/aman-minz-b6705036b/" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/acoustic.aman_" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors duration-200">Instagram</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Contribute</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Column -->
+        <div>
+          <h5 class="text-lg font-bold mb-6">Legal</h5>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Code of Conduct</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar with Credits -->
+      <div class="flex flex-col sm:flex-row items-center justify-between pt-8">
+        <p class="text-slate-500 text-sm">© 2026 SyncLab. All rights reserved.</p>
+        <p class="text-slate-500 text-sm mt-4 sm:mt-0">Created by <span class="text-white font-semibold">Aman Minz</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       MODAL - Thread Detail View (Hidden by Default)
+       ============================================ -->
+  <div id="thread-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" aria-hidden="true">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+      <button id="close-modal" class="sticky top-4 right-4 float-right bg-slate-100 hover:bg-slate-200 rounded-lg p-2 transition-colors duration-200" aria-label="Close modal">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="p-8">
+        <h3 id="modal-title" class="text-3xl font-bold text-slate-900 mb-4"></h3>
+        <p id="modal-body" class="text-slate-600 text-lg mb-8 leading-relaxed"></p>
+
+        <!-- Replies Section -->
+        <div class="border-t border-slate-200 pt-8">
+          <h4 class="text-2xl font-bold text-slate-900 mb-6">Replies</h4>
+          <ul id="reply-list" class="space-y-4 mb-8"></ul>
+
+          <!-- Reply Input -->
+          <div class="bg-slate-50 p-6 rounded-xl">
+            <textarea id="reply-text" placeholder="Share your thoughts..." class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent min-h-24 resize-none mb-4"></textarea>
+            <button id="post-reply" class="px-6 py-2 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+              Post Reply
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="credits">
-        <strong>Built by Aman Minz</strong>
-        <div class="small muted">Open-source discussion forum demo</div>
-      </div>
-      <div class="social">
-        <a href="https://github.com/AmanMInz-in" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/aman-minz-b6705036b/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.instagram.com/acoustic.aman_" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </div>
-  </footer>
-</html>
 </html>

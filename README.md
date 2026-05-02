@@ -1,4 +1,4 @@
-# Discussion Forum (open source demo)
+# SyncLab (open source demo)
 
 This repository is open source and released under the MIT license. All threads are public by design.
 

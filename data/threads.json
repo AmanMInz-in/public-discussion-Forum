@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "monzymfk",
+    "title": "Welcome to the Forum!",
+    "body": "This is a test thread to demonstrate the refactored landing page with Tailwind CSS styling. The forum is now more professional and user-friendly!",
+    "author": "testuser",
+    "createdAt": "2026-05-02T07:05:10.161Z",
+    "replies": [
+      {
+        "author": "anonymous",
+        "text": "Great refactoring! The Tailwind CSS design looks fantastic and is much more professional than before.",
+        "createdAt": "2026-05-02T07:07:01.453Z"
+      }
+    ]
+  }
+]

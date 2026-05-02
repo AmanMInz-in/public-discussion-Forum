@@ -1,7 +1,7 @@
 {
-  "name": "discussion-forum-demo",
+  "name": "synclab",
   "version": "1.0.0",
-  "description": "Minimal discussion forum demo (static + optional server)",
+  "description": "SyncLab - A modern discussion forum built with Node.js and Tailwind CSS",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
